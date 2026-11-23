@@ -8,20 +8,20 @@ pool:
 
 stages:
 - stage: 'Build'
-  displayName: 'Build the application'
+  displayName: 'Build the app'
   jobs: 
   - job: 'Build'
     displayName: 'Build job'
 
     steps:
-    - script: echo "echo 'Hello world!'" > hello.sh
-      displayName: 'Build hello world'
+    - script: echo "echo 'Hello world!!!!'" > hello.sh
+      displayName: 'Build hello world app'
       
     - publish: 'hello.sh'
       artifact: drop
 
 - stage: 'Deploy'
-  displayName: 'Deploy the artifact'
+  displayName: 'Deploy the artifact to dev'
   dependsOn: Build
   condition:  succeeded()
   jobs:
